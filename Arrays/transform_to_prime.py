@@ -1,11 +1,24 @@
-def minNumber(arr, n):
-    sum = 0
-    min_num = 0
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
+
+def min_number(arr):
+    total_sum = 0
     for i in arr:
-        sum += i
-    
+        total_sum += i
+    required = 0
 
-arr = [2, 4, 6, 8, 12]
+    while not is_prime(total_sum + required):
+        required += 1
+    return required
+
+
+arr = [1, 5, 7]
 n = len(arr)
-print(minNumber(arr,n))
+# print(min_number_to_insert(arr))
+print(min_number(arr))
